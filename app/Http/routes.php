@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', function() {
+
+	return view('accueil_bootstrap');
+
+});
 
 Route::get('home', 'HomeController@index');
 
@@ -19,3 +23,9 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('/ajout', function() {
+
+	return view('ajout_perle_bootstrap');
+
+});

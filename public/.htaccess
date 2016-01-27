@@ -4,9 +4,11 @@
     </IfModule>
 
     RewriteEngine On
+RewriteBase /~16_amato/lesperlesdumonde/public
 
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]
+	
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d

@@ -1,0 +1,182 @@
+body {
+	margin: 0 auto;
+	padding: 0 auto;
+}
+
+/* ----- Barre de header/navigation ----- */
+	
+.container {
+	width: 100%;
+}
+
+.row {
+	left: 0px;
+}
+
+#titre {
+	height: 110px;
+	background-color: rgb(62, 164,84);
+}
+
+#titre h1 {
+	color: white;
+	font-size: 30px;
+}
+nav {
+	background-color: rgb(93, 176,100);
+	height: 55px;
+	line-height: 55px;
+}
+#menu ul li {
+	background-color: rgb(93, 176,100);
+	text-align: center;
+	left: -25px;
+}
+
+#menu ul li a {
+	text-decoration: none;
+	color: white;
+}
+
+#menu ul li:hover {
+	background-color: rgb(112,183,114);
+}
+#menu ul li a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+img {
+	height: 90px;
+}
+
+/* -------- Footer ----- */
+footer {
+	background-color: rgb(62, 164,84);
+	height: 45px;
+	line-height: 45px;
+	color: white;
+	text-align: center;
+	margin-top: 50px;
+}
+
+
+/* -------------- colonne de recherhe --------------- */
+#formulaire_recherche {
+	margin-top: 25px;
+	border: 2px solid rgb(62, 164,84);
+}
+
+#formulaire_recherche h2 {
+		width: 100%;
+		background-color: rgb(62, 164,84);
+		color: white;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		font-size: 15px;
+		margin-top: 0px;
+}
+
+#formulaire_recherche form{
+	margin-left: 10px;
+}
+
+#formulaire_recherche #rechercher {
+	background-color: rgb(62, 164,84);
+	color: white;
+
+}
+
+
+/* ------------- Colonne de droite -------------- */
+#photos_voyage, #selections {
+	margin-top: 25px;
+	border: 2px solid rgb(62, 164,84);
+}
+
+#photos_voyage h2, #selections h2 {
+		width: 100%;
+		background-color: rgb(62, 164,84);
+		color: white;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		font-size: 15px;
+		margin-top: 0px;
+}
+
+#photos_voyage img {
+	margin: 10px 0px;
+	padding:0px 2px;
+		}
+
+
+.selection {
+	text-align: center;
+	margin-top: 5px;
+}
+
+#consulter {
+	background-color: rgb(62, 164,84);
+	color: white;
+}
+
+#selections .selection + .selection {
+	border-top: 1px solid black;
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 5px;
+}
+
+/* ----------- Slider ------------------ */
+#slider {
+	top: 50px;
+	padding: 50px; 
+	background-color: rgba(62, 164,84, 0.5);
+    position: relative;
+    width: 700px;         
+    height: 300px;       
+    margin:  0px auto;   
+    overflow: hidden;       
+}
+
+#slider img {
+	height: 300px;
+	width: 700px;
+	}
+#contenu ul li {
+    display: table-cell; 
+}
+
+#contenu ul { padding: 0px; }
+
+#contenu {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 700px;
+    margin: 0;            
+    padding: 0;
+	animation-name: AutoSlide;               
+    animation-duration: 25s;
+	animation-iteration-count: infinite;
+	animation-timing-function : ease;
+	animation-direction: normal;
+}
+
+ @keyframes AutoSlide {
+    0%  { left: 0px; }
+    25% { left: -700px; }
+    50% { left: -1400px; }
+   
+} 
+ figure figcaption {	
+	transform: translateX(15px);
+	background: rgba(55,55,55,0.9);
+	color: #fff;
+	font-weight: bold;
+	padding: 15px 3px;
+	z-index: 5;
+	margin-top: -75px;
+}
