@@ -29,3 +29,15 @@ Route::get('/ajout', function() {
 	return view('ajout_perle_bootstrap');
 
 });
+
+Route::get('/accueil', function() {
+
+	return view('accueil_bootstrap');
+
+});
+
+Route::any('valider_ajout', function() {
+
+	return view('formulaire_ajout_perle_bootstrap');
+
+});

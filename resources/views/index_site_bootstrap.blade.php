@@ -28,7 +28,7 @@
 		<header class="container">
 			<div id="titre" class="row">
 				<img class="col-xs-1 col-sm-1 col-md-1 col-lg-1 "src="Images/logo.png">
-				<h1  class="col-xs-8 col-sm-8 col-md-8 col-lg-9 ">Les perles du mondes</h1>
+				<a href="accueil"><h1  class="col-xs-8 col-sm-8 col-md-8 col-lg-9 ">Les perles du mondes</h1></a>
 				
 				<nav id="connexion"  class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 					<ul>
