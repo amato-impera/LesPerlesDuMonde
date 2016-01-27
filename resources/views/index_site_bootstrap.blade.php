@@ -19,7 +19,7 @@
 
 		<link rel="stylesheet" href="css/style.css">
 
-		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
 	
 
 	</head>
