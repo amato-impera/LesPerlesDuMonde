@@ -31,6 +31,7 @@ nav {
 	background-color: rgb(93, 176,100);
 	text-align: center;
 	left: -25px;
+	list-style: none;
 }
 
 #menu ul li a {
@@ -183,6 +184,6 @@ footer {
 
 
 /* --------- Map ajout ------------ */
-#carte {
-	margin: 0 auto;
+#ajout {
+	margin-top: 15px;
 }

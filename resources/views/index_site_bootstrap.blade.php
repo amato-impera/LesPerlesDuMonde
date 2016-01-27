@@ -8,6 +8,7 @@
 		<!-- Insertion des meta -->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<meta name="author" content="Anaïs Amato" />
 		<meta name="description" content="" />
 		<meta name="keywords"  content="" />
@@ -18,12 +19,12 @@
 
 		<link rel="stylesheet" href="css/style.css">
 
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
-		<script type="text/javascript" src="Javascript/googlemap.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	
 
 	</head>
 
-	<body onload="initialiser()">
+	<body>
 	
 		<header class="container">
 			<div id="titre" class="row">
