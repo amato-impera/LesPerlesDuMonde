@@ -180,3 +180,9 @@ footer {
 	z-index: 5;
 	margin-top: -75px;
 }
+
+
+/* --------- Map ajout ------------ */
+#carte {
+	margin: 0 auto;
+}

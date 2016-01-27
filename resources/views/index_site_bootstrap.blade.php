@@ -18,9 +18,12 @@
 
 		<link rel="stylesheet" href="css/style.css">
 
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+		<script type="text/javascript" src="Javascript/googlemap.js"></script>
+
 	</head>
 
-	<body>
+	<body onload="initialiser()">
 	
 		<header class="container">
 			<div id="titre" class="row">
