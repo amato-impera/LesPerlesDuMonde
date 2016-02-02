@@ -35,3 +35,21 @@ Route::get('/accueil', function() {
 	return view('accueil_bootstrap');
 
 });
+
+use App\Perle;
+use Illuminate\Http\Request;
+
+Route::any('valider_ajout_perle', function(Request $request) {
+	
+
+$perle = new Perle();
+$perle->nomperle = $request->input('nomperle');
+$perle->description = $request->input('description');
+//$perle->anecdote = $request->input('anecdote');
+$perle->latitude = $request->input('latitude');
+$perle->longitude = $request->input('longitude');
+
+$perle->save();
+
+	return view('accueil_bootstrap');
+});

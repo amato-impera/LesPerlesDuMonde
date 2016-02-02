@@ -13,13 +13,13 @@
 		<h3>Ajouter votre perle</h3>
 
 		
-		<form action="" >
+		<form name="ajout_perle" action="valider_ajout_perle" >
 			
 
 
 		<div class="form-group">
 			<label>Nom de la perle : </label>
-			<div class="col‐md‐4"><input type="text" class="form‐control" required></div>
+			<div class="col‐md‐4"><input type="text" name="nomperle" class="form‐control" required></div>
 		</div>
 
 		<div class="form-group">
@@ -38,20 +38,25 @@
 
 		<div class="form-group">
 			<label>Description</label>
-			<div class="col‐md‐4"><textarea name="textarea" rows="5" cols="50" placeholder="Description du site touristique"></textarea></div>
+			<div class="col‐md‐4"><textarea name="description" rows="5" cols="50" placeholder="Description du site touristique"></textarea></div>
 		</div>
 
 		
 
 		<div class="form-group">
 			<label>Anecdote sur la perle : </label>
-			<div class="col‐md‐4"><textarea name="textarea" rows="3" cols="50" placeholder="Une anecdote sur le site touristique"></textarea></div>
+			<div class="col‐md‐4"><textarea name="anecdote" rows="3" cols="50" placeholder="Une anecdote sur le site touristique"></textarea></div>
 		</div>
 
 		<div class="form-group">
 			<label>Ajouter une photo de votre voyage : </label>
 			<input type="file">
 		</div>
+
+		
+		<div class="col‐md‐4"><input type="text" id="latitude" name="latitude" class="form‐control"></div>
+		<div class="col‐md‐4"><input type="text" id="longitude" name="longitude" class="form‐control"></div>
+		
 
 		<input type="submit" class="btn btn center-block" id="ajout_perle" value="Ajouter cette perle">
 

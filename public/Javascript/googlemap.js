@@ -83,6 +83,12 @@ function geocodePosition(pos) {
 
 
 function updateMarkerPosition(latLng) {
-   console.log(latLng.lng());
-   console.log(latLng.lat());
+  // console.log(latLng.lng());
+  // console.log(latLng.lat());
+  var lat = latLng.lat();
+  var lon = latLng.lng();
+  
+    
+  document.ajout_perle.latitude.value = lat;
+  document.ajout_perle.longitude.value = lon;
  }
