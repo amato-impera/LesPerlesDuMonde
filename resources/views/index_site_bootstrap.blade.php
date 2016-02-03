@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="css/style.css">
 
 		<script src="https://maps.googleapis.com/maps/api/js"></script>
-	
+			<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 	</head>
 

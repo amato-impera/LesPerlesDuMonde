@@ -17,6 +17,9 @@ use Illuminate\Http\Request;
 
 Route::get('/', function() {
 
+
+	$perles = Perle::get();
+
 	return view('accueil_bootstrap');
 
 });
@@ -41,7 +44,7 @@ Route::get('/ajout', function() {
 });
 
 Route::get('/accueil', function() {
-
+$perles = Perle::get();
 	return view('accueil_bootstrap');
 
 });
@@ -62,4 +65,14 @@ $perle->longitude = $request->input('longitude');
 $perle->save();
 
 	return view('accueil_bootstrap');
+});
+
+
+Route::get('/marqueurs', function() {
+
+	$perles = Perle::get();
+	
+echo json_encode($perles);
+
+
 });

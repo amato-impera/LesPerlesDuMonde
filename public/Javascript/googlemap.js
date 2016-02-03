@@ -47,7 +47,7 @@ function placeMarkerAndPanTo(latLng, carte) { // ajouter le marquer
 
 if(firstClick==1){
 var marker = new google.maps.Marker({
-    position: latLng,
+    position: new google.maps.LatLng(lat, lon),
     draggable:true,
     animation: google.maps.Animation.DROP,
     map: carte
@@ -83,11 +83,11 @@ function geocodePosition(pos) {
 
 
 function updateMarkerPosition(latLng) {
-  // console.log(latLng.lng());
-  // console.log(latLng.lat());
+  //console.log(latLng.lng());
+  //console.log(latLng.lat());
   var lat = latLng.lat();
   var lon = latLng.lng();
-  
+ 
     
   document.ajout_perle.latitude.value = lat;
   document.ajout_perle.longitude.value = lon;

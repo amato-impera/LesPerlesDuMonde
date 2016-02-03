@@ -36,18 +36,9 @@
 					</div>
 				</div>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-6 col-md-offset-1">
-					<div id="slider">
-						<!-- <p>Je suis un futur slider !!!</p> -->
-						<div id="contenu">
-							<ul>	
 
-								<li><figure><img src="Images/map.jpg" alt="" /><figcaption><p>Partagez vos plus belles perles touristiques</p></figcaption></figure></li>
-								<li><figure><img src="Images/map.jpg" alt="" /><figcaption><p>Découvrez de nouvelles destinations</p></figcaption></figure></li>
-								<li><figure><img src="Images/map.jpg" alt="" /><figcaption><p>Partagez vos photos et anecdotes</p></figcaption></figure></li>        
-      						</ul>
-    					</div>
+					<div id="carteaccueil" style="height:400px"></div>
 
-  					</div>
 				</div>
 				
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-md-offset-1">
@@ -84,5 +75,9 @@
 
 				</div>
 			</div>
+
+
+
+		<script type="text/javascript" src="Javascript/googlemapaccueil.js"></script>
 
 @stop

@@ -50,18 +50,7 @@
 			<div class="col‐md‐4"><textarea name="description" rows="5" cols="50" placeholder="Description du site touristique"></textarea></div>
 		</div>
 
-		
-
-		<div class="form-group">
-			<label>Anecdote sur la perle : </label>
-			<div class="col‐md‐4"><textarea name="anecdote" rows="3" cols="50" placeholder="Une anecdote sur le site touristique"></textarea></div>
-		</div>
-
-		<div class="form-group">
-			<label>Ajouter une photo de votre voyage : </label>
-			<input type="file">
-		</div>
-
+	
 		
 		<div class="col‐md‐4"><input type="text" id="latitude" name="latitude" class="form‐control"></div>
 		<div class="col‐md‐4"><input type="text" id="longitude" name="longitude" class="form‐control"></div>
