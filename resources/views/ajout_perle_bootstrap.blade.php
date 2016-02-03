@@ -19,20 +19,29 @@
 
 		<div class="form-group">
 			<label>Nom de la perle : </label>
-			<div class="col‐md‐4"><input type="text" name="nomperle" class="form‐control" required></div>
+			<div class="col‐md‐4"><input type="text" name="nomperle" class="form‐control"></div>
 		</div>
 
 		<div class="form-group">
 			<label>Pays : </label>
-			<div class="col‐md‐4"><input type="text" class="form‐control" required></div>
+			<select name="idpays">
+				@foreach ($pays as $pays2)
+				<option value="{{$pays2->idpays}}">{{$pays2->nompays}}</option>
+				@endforeach
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label>Votre pays ne fait pas encore partie de nos destinations ? </label>
+			<div class="col‐md‐4"><input type="text" placeholder="Nouveau Pays" name="" class="form‐control"></div>
 		</div>
 
 		<div class="form-group">
 			<label>Catégorie : </label>
-			<select>
-				<option>blabla</option>
-				<option>blabla 2</option>
-				<option>blabla 3</option>
+			<select name="idcategorie">
+				@foreach ($categories as $categorie)
+				<option value="{{$categorie->idcategorie}}">{{$categorie->nomcategorie}}</option>
+				@endforeach
 			</select>
 		</div>
 

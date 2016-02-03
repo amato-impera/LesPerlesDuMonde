@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Perle extends Model {
-		//protected $perle = 'PERLE';
+class Categorie extends Model {
+
 
 		public $timestamps = false;
 }
