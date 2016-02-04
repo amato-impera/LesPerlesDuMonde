@@ -23,6 +23,15 @@
 		</div>
 
 		<div class="form-group">
+			<label>Continent : </label>
+			<select name="idcontinent">
+				@foreach ($continents as $continent)
+				<option value="{{$continent->idcontinent}}">{{$continent->nomcontinent}}</option>
+				@endforeach
+			</select>
+		</div>
+
+		<div class="form-group">
 			<label>Pays : </label>
 			<select name="idpays">
 				@foreach ($pays as $pays2)

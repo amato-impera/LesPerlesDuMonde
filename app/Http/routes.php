@@ -13,13 +13,12 @@
 use App\Perle;
 use App\Categorie;
 use App\Pays;
+use App\Continent;
 use Illuminate\Http\Request;
 
 Route::get('/', function() {
 
-
 	$perles = Perle::get();
-
 	return view('accueil_bootstrap');
 
 });
@@ -37,9 +36,8 @@ Route::get('/ajout', function() {
 
 	$categories = Categorie::get();
 	$pays = Pays::get();
-
-
-	return view('ajout_perle_bootstrap', ['categories' => $categories], ['pays' => $pays]);
+	$continents = Continent::get();
+	return view('ajout_perle_bootstrap',['continents' => $continents, 'categories' => $categories, 'pays' => $pays]);
 
 });
 
@@ -59,6 +57,7 @@ $perle->nomperle = $request->input('nomperle');
 $perle->description = $request->input('description');
 $perle->idcategorie = $request->input('idcategorie');
 $perle->idpays = $request->input('idpays');
+$perle->idcontinent = $request->input('idcontinent');
 $perle->latitude = $request->input('latitude');
 $perle->longitude = $request->input('longitude');
 
