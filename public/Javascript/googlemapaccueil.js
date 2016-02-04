@@ -9,7 +9,7 @@ function init(event) {
 else
   console.log("Votre navigateur ne prend pas en compte la géolocalisation");
 
- $.get("http://vsp149406.nfrance.com/~16_amato/lesperlesdumonde/public/marqueurs", creermarqueur, "json");
+
      
 
 }
@@ -37,37 +37,55 @@ function actionSiSucces(position){
         //dans lequel la carte doit s'afficher et les options
       var carteaccueil = new google.maps.Map(document.getElementById("carteaccueil"), options);
 
-    
-      }
+     
+ //$.get("http://vsp149406.nfrance.com/~16_amato/lesperlesdumonde/public/marqueurs", creermarqueur,"json");
+    $.ajax({
+       url   : 'http://vsp149406.nfrance.com/~16_amato/lesperlesdumonde/public/marqueurs',              
+       dataType : "json",  
+        success  : function(data){
+
+                  
+                 $.each(data, function(index, val) {
+                    
+                    var lat = val.latitude;
+                    var lon = val.longitude;
+                        var marker = new google.maps.Marker({
+                             position : new google.maps.LatLng(lat, lon),
+                             map      : carteaccueil
+                           });
+                             
+                          
+      });
+  }
+});
 
 
-function creermarqueur(donneesJSON) {
-/* console.log(donneesJSON);
+                }
+
+
+/*
+function creermarqueur(donneesJSON, carteaccueil) {
+
+
+
+var i = 0;
+
+for (i; i<donneesJSON.length; i++) {
+
+
 var lat = donneesJSON[i].latitude;
 var lng = donneesJSON[i].longitude;
-console.log("blabla");
-var i;
-for (i=0;i<donneesJSON.length; i++) {
+console.log("blabl");
 
-  new google.maps.Marker({
-    position: new google.maps.LatLng(lat, lng),
-    draggable:true,
+var id = donneesJSON[i].id;
+new google.maps.Marker({
+    position: new google.maps.LatLng(lat[1], lng[1]),
     animation: google.maps.Animation.DROP,
+    title : "Marqueur-"+i,
     map: carteaccueil
   });
 
+
+}
 }
 */
-  $.each(donneesJSON, function(index, val) {
-   
-    var lat = val.latitude;
-    var lon = val.longitude;
-
-    new google.maps.Marker({
-    position: new google.maps.LatLng(lat, lon),
-    animation: google.maps.Animation.DROP,
-    map: carteaccueil
-  });
-  });
-}
-

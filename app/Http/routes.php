@@ -72,7 +72,7 @@ Route::get('/marqueurs', function() {
 
 	$perles = Perle::get();
 	
-echo json_encode($perles);
+	echo json_encode($perles);
 
 
 });

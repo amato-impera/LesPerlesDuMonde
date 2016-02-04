@@ -47,7 +47,7 @@ function placeMarkerAndPanTo(latLng, carte) { // ajouter le marquer
 
 if(firstClick==1){
 var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(lat, lon),
+    position: latLng,
     draggable:true,
     animation: google.maps.Animation.DROP,
     map: carte
