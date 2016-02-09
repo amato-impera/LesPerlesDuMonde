@@ -61,6 +61,10 @@ footer {
 	margin-top: 50px;
 }
 
+footer p {
+	margin: inherit;
+}
+
 
 /* -------------- colonne de recherhe --------------- */
 #formulaire_recherche {
@@ -145,3 +149,8 @@ footer {
 	color: white;
 }
 
+
+/* ----------- Page consultation ------------ */
+#titre_consultation {
+	
+}

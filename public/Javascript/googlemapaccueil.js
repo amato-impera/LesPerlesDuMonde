@@ -60,7 +60,8 @@ function actionSiSucces(position) {
 
                 google.maps.event.addListener(marker, 'click', function (data) {
                     // affichage position du marker
-                    oInfo.setContent(val.nomperle + '<br/><a href="">Consulter la perle</a>');
+                    var id=val.id;
+                    oInfo.setContent(val.nomperle +'<br/><a href="http://vsp149406.nfrance.com/~16_amato/lesperlesdumonde/public/perle'+id+'">Consulter la perle</a>');
                     oInfo.open(carteaccueil, marker);
                 });
             });

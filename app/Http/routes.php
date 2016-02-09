@@ -35,9 +35,7 @@ Route::controllers([
 Route::get('/ajout', function() {
 
 	$categories = Categorie::get();
-	$pays = Pays::get();
-	$continents = Continent::get();
-	return view('ajout_perle_bootstrap',['continents' => $continents, 'categories' => $categories, 'pays' => $pays]);
+	return view('ajout_perle_bootstrap',['categories' => $categories]);
 
 });
 
@@ -54,12 +52,10 @@ Route::any('valider_ajout_perle', function(Request $request) {
 
 $perle = new Perle();
 $perle->nomperle = $request->input('nomperle');
-$perle->description = $request->input('description');
 $perle->idcategorie = $request->input('idcategorie');
-$perle->idpays = $request->input('idpays');
-$perle->idcontinent = $request->input('idcontinent');
 $perle->latitude = $request->input('latitude');
 $perle->longitude = $request->input('longitude');
+
 
 $perle->save();
 
@@ -73,5 +69,13 @@ Route::get('/marqueurs', function() {
 	
 	echo json_encode($perles);
 
+
+});
+
+Route::get('/perle{idperle}', function($idperle) {
+
+	$perle = Perle::find($idperle);
+
+	return view('perle_bootstrap', ['perle' =>$perle]);
 
 });
