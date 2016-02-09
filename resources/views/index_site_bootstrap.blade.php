@@ -31,11 +31,28 @@
 				<img class="col-xs-1 col-sm-1 col-md-1 col-lg-1 "src="Images/logo.png">
 				<a href="accueil"><h1  class="col-xs-8 col-sm-8 col-md-8 col-lg-9 ">Les perles du mondes</h1></a>
 				
-				<nav id="connexion"  class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-					<ul>
-						<li><a href="">Se connecter</a></li>
-					</ul>
-				</nav>
+				@if (Auth::user())
+				<form class="navbar-form navbar-right inline-form" method="post" action="deconnexion">
+					<div class="form-group">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<button type="submit" class="btn btn-primary btn-sm">Deconnexion</button>
+					</div>
+				</form>
+
+				@else
+				<form class="navbar-form navbar-right inline-form" method="post" action="connexion">
+					<div class="form-group">
+						<input type="text" class="form-control input-sm" placeholder="Pseudo" name="pseudo" required>
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control input-sm" placeholder="Mot de passe" name="motdepasse" required>
+					</div>
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<button type="submit" class="btn btn-primary btn-sm">Se connecter</button>
+					<a href="inscription" class="btn btn-secondary btn-sm">S'inscrire</a>
+				</form>
+				@endif
+
 			</div>
 			<nav id="menu" class="row">
 				<ul>
