@@ -21,7 +21,7 @@ use Illuminate\Http\Request;
 // Vérification des données de connexion
 Route::post('connexion', function(Request $request) {
 // attempt : methode de la classe Auth pour vérifier les identifiants
-    if (Auth::attempt(['pseudo' => $request->pseudo, 'password' => $request->motdepasse])) {
+    if (Auth::attempt(['pseudo' => $request->pseudo, 'password' => $request->password])) {
         return view('accueil_bootstrap', ['message' => 'Vous etes maitenant connecte' . Auth::user()->pseudo]);
     } else {
         return view('accueil_bootstrap', ['message' => 'Echec de la connexion']);
@@ -47,7 +47,7 @@ Route::post('valid_inscription', function(Request $request) {
     $user->email = $request->email;
     $user->ville = $request->ville;
     $user->pays = $request->pays;
-    $user->password = Hash::make($request->motdepasse); // cryptage mot de passe
+    $user->password = Hash::make($request->password); // cryptage mot de passe
     $user->save();
     return view('index_site_bootstrap', ['message' => 'votre compte est bien cree, vous pouvez vous connecter']);
 });

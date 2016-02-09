@@ -50,9 +50,9 @@
 			    </div>
 			</div>
 			<div class="form‐group">
-		    	<label for="motdepasse" class="control‐label col‐md‐2">Mot de passe </label>
+		    	<label for="password" class="control‐label col‐md‐2">Mot de passe </label>
 		    	<div class="col‐md‐4">
-		    		<input type="password" name="motdepasse" id="motdepasse" class="form‐control" placeholder="motdepasse" required/>
+		    		<input type="password" name="password" id="password" class="form‐control" placeholder="motdepasse" required/>
 		   		</div>
 			</div>
 			<div class="form‐group">

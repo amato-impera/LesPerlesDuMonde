@@ -3,3 +3,4 @@
 .env
 sftp-config.json
 public/.htaccess
+*.htaccess
