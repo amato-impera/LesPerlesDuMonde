@@ -4,7 +4,7 @@
     </IfModule>
 
     RewriteEngine On
-RewriteBase /~16_imperatori/lesperlesdumonde/public
+RewriteBase /~16_amato/lesperlesdumonde/public
 
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]

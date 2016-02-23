@@ -39,7 +39,13 @@
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-6 col-md-offset-1">
 
 					<h1 id="titre_consultation">{{$perle->nomperle}}</h1>
-
+					
+					<form enctype="multipart/form-data" method="post" action="valider_ajout_photo">
+						<input type="file" name="photo"/>
+						<input type="hidden" name="idperle" value="{{$perle->id}}">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<input type="submit" value="Ajoutez votre photo"/>
+					</form>
 				</div>
 				
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-md-offset-1">
@@ -48,7 +54,7 @@
 							<div id="photos" class="container">
 								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
 								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
-								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
+								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ismg-responsive" src="Images/paysage.jpeg">
 								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
 								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
 								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">

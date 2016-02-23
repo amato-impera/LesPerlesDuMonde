@@ -15,6 +15,7 @@ use App\Perle;
 use App\Categorie;
 use App\Pays;
 use App\Continent;
+use App\Photo;
 use Illuminate\Http\Request;
 
 // ---------------------------------- USERS ------------------------------------------
@@ -78,7 +79,7 @@ Route::get('/ajout', function() {
 Route::get('/accueil', function() {
 $perles = Perle::get();
 	return view('accueil_bootstrap');
-
+ 
 });
 
 
@@ -113,5 +114,40 @@ Route::get('/perle{idperle}', function($idperle) {
 	$perle = Perle::find($idperle);
 
 	return view('perle_bootstrap', ['perle' =>$perle]);
+
+});
+
+
+
+/* ------------ Ajout d'une photo ------------- */
+Route::any('valider_ajout_photo', function(Request $request) {
+    $date = date("Y-m-d");
+    $heure = date("H:i:s");
+    
+    $photo=new Photo();
+    $photo->nomphoto= $request->photo;
+    $photo->idperle= $request->input('idperle');
+    $photo->datephoto= $date;
+    $photo->heurephoto= $heure;
+    
+
+   //On récupère le fichier photo dans un objet file
+
+    //$request->input('photo');
+    $file = Input::file('photo');
+    
+    //chemin du fichier
+    //$path = Input::file('photo')->getRealPath();
+    //echo $path;
+
+
+    $destinationPath='Images';
+    $name = Input::file('photo')->getClientOriginalName();
+    Input::file('photo')->move($destinationPath, $name);
+
+    $photo->nomphoto=$name;
+    if ($photo->save()) {
+        return view('accueil_bootstrap');
+    }
 
 });
