@@ -16,6 +16,7 @@ use App\Categorie;
 use App\Pays;
 use App\Continent;
 use App\Photo;
+use App\Anecdote;
 use Illuminate\Http\Request;
 
 // ---------------------------------- USERS ------------------------------------------
@@ -147,6 +148,23 @@ Route::any('valider_ajout_photo', function(Request $request) {
 
     $photo->nomphoto=$name;
     if ($photo->save()) {
+        return view('accueil_bootstrap');
+    }
+
+});
+
+/* ------------ Ajout d'une anecdote ------------- */
+Route::any('valider_ajout_anecdote', function(Request $request) {
+    $date = date("Y-m-d");
+    $heure = date("H:i:s");
+    
+    $anecdote=new Anecdote();
+    $anecdote->anecdote= $request->anecdote;
+    $anecdote->idperle= $request->input('idperle');
+    $anecdote->dateanecdote= $date;
+    $anecdote->heureanecdote= $heure;
+
+    if ($anecdote->save()) {
         return view('accueil_bootstrap');
     }
 
