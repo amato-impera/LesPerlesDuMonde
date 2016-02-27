@@ -93,6 +93,7 @@ $perle->nomperle = $request->input('nomperle');
 $perle->idcategorie = $request->input('idcategorie');
 $perle->latitude = $request->input('latitude');
 $perle->longitude = $request->input('longitude');
+$perle->pays = $request->input('pays');
 
 
 $perle->save();
@@ -142,7 +143,7 @@ Route::any('valider_ajout_photo', function(Request $request) {
     //echo $path;
 
 
-    $destinationPath='Images';
+    $destinationPath='Photos';
     $name = Input::file('photo')->getClientOriginalName();
     Input::file('photo')->move($destinationPath, $name);
 
@@ -169,3 +170,13 @@ Route::any('valider_ajout_anecdote', function(Request $request) {
     }
 
 });
+
+
+Route::get('/photosaleatoires', function() {
+    $photos = Photo::orderBy(DB::raw('RAND()'))->get();
+   /* $photos= DB::table('photos')
+    ->select(['nomphoto'])
+    ->orderBy('RAND()');  */  
+    echo json_encode($photos);
+});
+ 

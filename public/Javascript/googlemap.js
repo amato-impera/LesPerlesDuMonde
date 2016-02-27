@@ -87,8 +87,26 @@ function updateMarkerPosition(latLng) {
   //console.log(latLng.lat());
   var lat = latLng.lat();
   var lon = latLng.lng();
- 
-    
+
   document.ajout_perle.latitude.value = lat;
   document.ajout_perle.longitude.value = lon;
+
+   geocoder.geocode({'latLng': latLng}, function(results, status) {
+ 
+          if (status == google.maps.GeocoderStatus.OK) {
+        if (results[0]) {
+         
+          var elt = results[0].address_components;
+          for(i in elt){
+  
+          if(elt[i].types[0] == 'country')
+          document.getElementById('pays').value = elt[i].long_name;
+       
+         
+        }
+      } else {
+        alert("Geocoder failed due to: " + status);
+      }
+  }
+ });
  }

@@ -45,12 +45,13 @@
 					<div id="photos_voyage">
 						<h2>Quelques photos de voyage</h2>
 							<div id="photos" class="container">
+								<!--<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
 								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
 								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
 								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
 								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
-								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
-								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
+								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">-->
+								<script type="text/javascript" src="Javascript/photosaleatoires.js"></script>
 							</div>
 
 					</div>

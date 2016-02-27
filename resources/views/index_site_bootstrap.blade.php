@@ -40,6 +40,7 @@
 				</form>
 
 				@else
+					
 				<form class="navbar-form navbar-right inline-form" method="post" action="connexion">
 					<div class="form-group">
 						<input type="text" class="form-control input-sm" placeholder="Pseudo" name="pseudo" required>
