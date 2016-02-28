@@ -100,13 +100,36 @@ function updateMarkerPosition(latLng) {
           for(i in elt){
   
           if(elt[i].types[0] == 'country')
-          document.getElementById('pays').value = elt[i].long_name;
+          var pays = elt[i].long_name;
+          //document.getElementById('pays').value = elt[i].long_name;
        
          
         }
       } else {
         alert("Geocoder failed due to: " + status);
       }
+
+
+      $.ajax({
+        url: 'https://restcountries.eu/rest/v1/name/'+pays+'?fullText=true',
+        dataType: "json",
+        success: function (data) {
+
+
+            $.each(data, function (index, val) {
+
+                var continent = val.region;
+                document.getElementById('continent').value = continent;
+                var pays2 = val.name;
+                document.getElementById('pays').value = pays2;
+            });
+
+        }
+        
+    });
+      
   }
  });
+
+
  }

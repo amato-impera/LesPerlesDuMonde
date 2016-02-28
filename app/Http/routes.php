@@ -94,6 +94,7 @@ $perle->idcategorie = $request->input('idcategorie');
 $perle->latitude = $request->input('latitude');
 $perle->longitude = $request->input('longitude');
 $perle->pays = $request->input('pays');
+$perle->continent = $request->input('continent');
 
 
 $perle->save();
