@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'model' => 'App\User',
+	'model' => 'App\Utilisateur',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
 	|
 	*/
 
-	'table' => 'users',
+	'table' => 'utilisateurs',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -56,12 +56,13 @@ return [
 	| considered valid. This security feature keeps tokens short-lived so
 	| they have less time to be guessed. You may change this as needed.
 	|
-	*/
+	
 
 	'password' => [
 		'email' => 'emails.password',
 		'table' => 'password_resets',
 		'expire' => 60,
 	],
+	*/
 
 ];

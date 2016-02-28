@@ -28,8 +28,8 @@
 	
 		<header class="container">
 			<div id="titre" class="row">
-				<img class="col-xs-1 col-sm-1 col-md-1 col-lg-1 "src="Images/logo.png">
-				<a href="accueil"><h1  class="col-xs-8 col-sm-8 col-md-8 col-lg-9 ">Les perles du mondes</h1></a>
+				
+				<a href="accueil"><img src="Images/logo.png"></a>
 				
 				@if (Auth::user())
 				<form class="navbar-form navbar-right inline-form" method="post" action="deconnexion">
@@ -40,7 +40,6 @@
 				</form>
 
 				@else
-					
 				<form class="navbar-form navbar-right inline-form" method="post" action="connexion">
 					<div class="form-group">
 						<input type="text" class="form-control input-sm" placeholder="Pseudo" name="pseudo" required>
