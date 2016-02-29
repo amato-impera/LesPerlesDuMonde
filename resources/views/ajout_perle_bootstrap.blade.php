@@ -3,13 +3,16 @@
 @section('section')
 
 	<div id="ajout"class="row">
-				
+		
+		@if (Auth::user())
 		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-lg-offset-1 " id="carte" style="height:550px"></div>
-
+	
 
 
 		<div class="col-xs-3 col-sm-3 col-md-3col-lg-3">
 
+
+		
 		<h3>Ajouter votre perle</h3>
 
 		
@@ -43,8 +46,30 @@
 
 
 		</form>	
+</div>
+		@else
 
-		</div>
+	<div class="col-lg-offset-3 col-lg-6 col-lg-offset-3" id="pasco">
+		<h1>Vous n'êtes pas connecté</h1>
+
+		<p>Pour accéder au contenu de cette page et pouvoir partager une perle,</p>
+		<p>veuillez vous connecter ou vous inscrire si vous ne possèdez aucun compte.</p>
+
+
+		<form id="form_pasco" class="navbar-form inline-form" method="post" action="connexion">
+					<div class="form-group">
+						<input type="text" class="form-control input-sm" placeholder="Pseudo" name="pseudo" required>
+					</div><br/><br/>
+					<div class="form-group">
+						<input type="password" class="form-control input-sm" placeholder="Mot de passe" name="password" required>
+					</div><br/><br/>
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<button type="submit" class="btn btn-primary btn-sm">Se connecter</button>
+					<a href="inscription" class="btn btn-secondary btn-sm">S'inscrire</a>
+		</form>
+	</div>
+		@endif
+		
 	</div>
 
 

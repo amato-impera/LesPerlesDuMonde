@@ -57,8 +57,8 @@ Route::post('valid_inscription', function(Request $request) {
 
 // Affiche la page d'accueil
 Route::get('/', function() {
-
-	$perles = Perle::get();
+    $iduser = Auth::user()->idutilisateur;
+    $perles = Perle::get();
 	return view('accueil_bootstrap');
 
 });
@@ -90,15 +90,17 @@ $perles = Perle::get();
 
 // Valide l'ajout d'une perle et enregistre les donnees dans la bdd
 Route::any('valider_ajout_perle', function(Request $request) {
-	
+	 $iduser = Auth::user()->idutilisateur;
 
 $perle = new Perle();
 $perle->nomperle = $request->input('nomperle');
 $perle->idcategorie = $request->input('idcategorie');
+$perle->idutilisateur = $iduser;
 $perle->latitude = $request->input('latitude');
 $perle->longitude = $request->input('longitude');
 $perle->pays = $request->input('pays');
 $perle->continent = $request->input('continent');
+
 
 
 $perle->save();
@@ -125,12 +127,16 @@ Route::get('/perle{idperle}', function($idperle) {
                     ->select(['*'])
                     ->where('idperle', $idperle)
                     ->orderBy('dateanecdote', 'desc') 
-                    ->get();      
+                    ->get();   
+
     $photos= DB::table('photos') // recupere les anecdotes sur la perle et les classe aléatoirement
                     ->select(['*'])
                     ->where('idperle', $idperle)
                     ->orderBy(DB::raw('RAND()'))
-                    ->get();               
+                    ->take(4)
+                    ->get();
+
+               
 	return view('perle_bootstrap', ['perle' =>$perle, 'anecdotes' => $anecdotes, 'photos' => $photos]);
 
 });
@@ -141,13 +147,13 @@ Route::get('/perle{idperle}', function($idperle) {
 Route::any('valider_ajout_photo', function(Request $request) {
     $date = date("Y-m-d");
     $heure = date("H:i:s");
-    
+    $iduser = Auth::user()->idutilisateur;
     $photo=new Photo();
     $photo->nomphoto= $request->photo;
     $photo->idperle= $request->input('idperle');
     $photo->datephoto= $date;
     $photo->heurephoto= $heure;
-    
+    $photo->idutilisateur = $iduser;
 
    //On récupère le fichier photo dans un objet file
 
@@ -174,13 +180,13 @@ Route::any('valider_ajout_photo', function(Request $request) {
 Route::any('valider_ajout_anecdote', function(Request $request) {
     $date = date("Y-m-d");
     $heure = date("H:i:s");
-    
+    $iduser = Auth::user()->idutilisateur;
     $anecdote=new Anecdote();
     $anecdote->anecdote= $request->anecdote;
     $anecdote->idperle= $request->input('idperle');
     $anecdote->dateanecdote= $date;
     $anecdote->heureanecdote= $heure;
-
+    $anecdote->idutilisateur = $iduser;
     if ($anecdote->save()) {
         return view('accueil_bootstrap');
     }
@@ -205,4 +211,24 @@ Route::get('/consulter', function() {
 $perles = Perle::get();
     return view('consulter_perle');
  
+});
+
+
+
+
+/* --------------- FORMULAIRE DE CONSULTATION ------------------- */
+// Affiche au format JSON de toutes les catégories
+Route::get('/categoriesREST', function() {
+    $categories = Categorie::get();
+    echo json_encode($categories);
+});
+
+
+// Affiche au format JSON tous les continents entrés dans la base
+Route::get('/continentsREST', function() {
+    $continents= DB::table('perles') // recupere les anecdotes sur la perle et les classe aléatoirement
+                    ->distinct()
+                    ->select(['continent'])
+                    ->get();  
+    echo json_encode($continents);
 });

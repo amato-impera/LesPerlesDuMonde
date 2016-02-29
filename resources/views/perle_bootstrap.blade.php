@@ -38,20 +38,27 @@
 				</div>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-6 col-md-offset-1">
 
-					<h1 id="titre_consultation">&nbsp;{{$perle->nomperle}}</h1>
-					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" id="carte" style="height:250px"></div>
-					<div>
-						<img class="col-xs-5 col-sm-5 col-md-5 col-lg-7" style="height: 250px;" src="Photos/paysage1.jpg">
-					</div>
-					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-12"id="formulaires">
 
-					<form class="col-xs-7 col-sm-7 col-md-7 col-lg-6" smethod="post" action="valider_ajout_anecdote">
+					<h1 id="titre_consultation">&nbsp;{{$perle->nomperle}}</h1>
+					<div class="col-lg-6" id="carte" style="height:250px"></div>
+					<div id="images_perles">
+						<img class="col-lg-3" style="height: 125px;" src="Photos/paysage2.JPG">
+						<img class="col-lg-3" style="height: 125px;" src="Photos/paysage3.JPG">
+						<img class="col-lg-3" style="height: 125px;" src="Photos/paysage1.jpg">
+						<img class="col-lg-3" style="height: 125px;" src="Photos/paysage4.jpg">
+					</div>
+
+
+				@if (Auth::user())
+					<div class="col-lg-12"id="formulaires">
+
+					<form class="col-lg-6" smethod="post" action="valider_ajout_anecdote">
 						<textarea type="text" id="anecdote" name="anecdote" rows="3" cols="40" placeholder="Ecrivez votre anecdote.."></textarea>
 						<input type="hidden"name="idperle" value="{{$perle->id}}"/>
 						<input type="hidden" name="_token" value="{{ csrf_token() }}"><br/><br/>
 						<input type="submit" class="btn btn center-block" id="ajout1" value="PARTAGEZ UNE ANECDOTE"/>
 					</form>
-					<form class="col-xs-7 col-sm-7 col-md-7 col-lg-6" id="ajout_photo"enctype="multipart/form-data" method="post" action="valider_ajout_photo">
+					<form class="col-lg-6" id="ajout_photo"enctype="multipart/form-data" method="post" action="valider_ajout_photo">
 						<br/><input type="file" name="photo"/>
 						<input type="hidden" name="idperle" value="{{$perle->id}}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}"><br/><br/>
@@ -59,11 +66,17 @@
 					</form>
 					</div>
 
+				@else 
+					<div class="col-lg-12"id="ajout_pasco">
+						<p>&nbsp;Vous n'êtes pas connecté, pour ajouter une anecdote et/ou une photo, veuillez vous connecter ou vous inscrire si vous ne possédez pas de compte</p>
+					</div>
+
+				@endif
 					<div id="anecdotes">
 						@foreach($anecdotes as $anecdote)
 							<div id="anecdote">
 								<p><b>{{$anecdote->anecdote}}</b></p>
-								<p>Ajouté le {{$anecdote->dateanecdote}} à {{$anecdote->heureanecdote}}</p>
+								<p>Ajouté le {{$anecdote->dateanecdote}}</p>
 							</div>
 						@endforeach
 					</div>
