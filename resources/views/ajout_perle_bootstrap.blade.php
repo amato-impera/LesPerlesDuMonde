@@ -15,22 +15,21 @@
 		
 		<form name="ajout_perle" action="valider_ajout_perle" >
 			
+				<div class="form-group">
+			    	<div class="col-sm-10">
+			     		<input type="text" class="form-control" placeholder="Nom de la perle" name="nomperle">
+			    	</div>
+			  	</div>
+				</br></br></br>
+			  	<div class="form-group">
+			  		<label class="control-label col-xm-2" >Catégorie : </label>
+			    	<select name="idcategorie">
+						@foreach ($categories as $categorie)
+						<option value="{{$categorie->idcategorie}}">{{$categorie->nomcategorie}}</option>
+					@endforeach
+					</select>
+			  	</div>
 
-
-		<div class="form-group">
-			<label>Nom de la perle : </label>
-			<div class="col‐md‐4"><input type="text" name="nomperle" class="form‐control"></div>
-		</div>
-
-		
-		<div class="form-group">
-			<label>Catégorie : </label>
-			<select name="idcategorie">
-				@foreach ($categories as $categorie)
-				<option value="{{$categorie->idcategorie}}">{{$categorie->nomcategorie}}</option>
-				@endforeach
-			</select>
-		</div>
 
 		
 		
