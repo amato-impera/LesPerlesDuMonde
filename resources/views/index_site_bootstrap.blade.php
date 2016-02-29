@@ -57,7 +57,7 @@
 			<nav id="menu" class="row">
 				<ul>
 					<li class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-lg-offset-3 col-md-offset-3"><a href="ajout">AJOUTER UNE PERLE</a></li>
-					<li class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-lg-offset-right-3"><a href="">CONSULTER UNE PERLE</a></li>
+					<li class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-lg-offset-right-3"><a href="consulter">CONSULTER UNE PERLE</a></li>
 				</ul>
 			</nav>
 

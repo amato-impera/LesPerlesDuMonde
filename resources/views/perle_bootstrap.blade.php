@@ -38,19 +38,35 @@
 				</div>
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-6 col-md-offset-1">
 
-					<h1 id="titre_consultation">{{$perle->nomperle}}</h1>
-					<form method="post" action="valider_ajout_anecdote">
-						<label>Partagez votre anecdote : </label><input type="text" name="anecdote"/>
-						<input type="hidden" name="idperle" value="{{$perle->id}}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="submit" value="Ajoutez votre anecdote"/>
+					<h1 id="titre_consultation">&nbsp;{{$perle->nomperle}}</h1>
+					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" id="carte" style="height:250px"></div>
+					<div>
+						<img class="col-xs-5 col-sm-5 col-md-5 col-lg-7" style="height: 250px;" src="Photos/paysage1.jpg">
+					</div>
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-12"id="formulaires">
+
+					<form class="col-xs-7 col-sm-7 col-md-7 col-lg-6" smethod="post" action="valider_ajout_anecdote">
+						<textarea type="text" id="anecdote" name="anecdote" rows="3" cols="40" placeholder="Ecrivez votre anecdote.."></textarea>
+						<input type="hidden"name="idperle" value="{{$perle->id}}"/>
+						<input type="hidden" name="_token" value="{{ csrf_token() }}"><br/><br/>
+						<input type="submit" class="btn btn center-block" id="ajout1" value="PARTAGEZ UNE ANECDOTE"/>
 					</form>
-					<form enctype="multipart/form-data" method="post" action="valider_ajout_photo">
-						<input type="file" name="photo"/>
+					<form class="col-xs-7 col-sm-7 col-md-7 col-lg-6" id="ajout_photo"enctype="multipart/form-data" method="post" action="valider_ajout_photo">
+						<br/><input type="file" name="photo"/>
 						<input type="hidden" name="idperle" value="{{$perle->id}}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="submit" value="Ajoutez votre photo"/>
+						<input type="hidden" name="_token" value="{{ csrf_token() }}"><br/><br/>
+						<input type="submit" class="btn btn center-block" id="ajout2" value="AJOUTEZ UNE PHOTO"/>
 					</form>
+					</div>
+
+					<div id="anecdotes">
+						@foreach($anecdotes as $anecdote)
+							<div id="anecdote">
+								<p><b>{{$anecdote->anecdote}}</b></p>
+								<p>Ajouté le {{$anecdote->dateanecdote}} à {{$anecdote->heureanecdote}}</p>
+							</div>
+						@endforeach
+					</div>
 					
 				</div>
 				
@@ -58,12 +74,7 @@
 					<div id="photos_voyage">
 						<h2>Quelques photos de voyage</h2>
 							<div id="photos" class="container">
-								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
-								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
-								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ismg-responsive" src="Images/paysage.jpeg">
-								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
-								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
-								<img class="col-xs-6 col-sm-6 col-md-6 col-lg-6 img-responsive" src="Images/paysage.jpeg">
+								<script type="text/javascript" src="Javascript/photosaleatoires.js"></script>
 							</div>
 
 					</div>
@@ -87,6 +98,6 @@
 					</div>
 
 				</div>
-	
+	<script type="text/javascript" src="Javascript/googlemapperle.js"></script>
 	
 @stop

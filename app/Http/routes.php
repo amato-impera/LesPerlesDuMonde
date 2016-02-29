@@ -54,6 +54,8 @@ Route::post('valid_inscription', function(Request $request) {
     return view('index_site_bootstrap', ['message' => 'votre compte est bien cree, vous pouvez vous connecter']);
 });
 
+
+// Affiche la page d'accueil
 Route::get('/', function() {
 
 	$perles = Perle::get();
@@ -69,7 +71,7 @@ Route::controllers([
 ]);
 
 
-
+// Affiche la page d'ajout d'une perle
 Route::get('/ajout', function() {
 
 	$categories = Categorie::get();
@@ -77,6 +79,8 @@ Route::get('/ajout', function() {
 
 });
 
+
+// Affiche la page d'accueil
 Route::get('/accueil', function() {
 $perles = Perle::get();
 	return view('accueil_bootstrap');
@@ -84,7 +88,7 @@ $perles = Perle::get();
 });
 
 
-
+// Valide l'ajout d'une perle et enregistre les donnees dans la bdd
 Route::any('valider_ajout_perle', function(Request $request) {
 	
 
@@ -103,6 +107,7 @@ $perle->save();
 });
 
 
+// Utilisateur de PHP en API Rest, affiche au format json la liste de toutes les perles pour ensuite les afficher sur la map 
 Route::get('/marqueurs', function() {
 
 	$perles = Perle::get();
@@ -112,11 +117,21 @@ Route::get('/marqueurs', function() {
 
 });
 
+// Affiche la page d'une perle 
 Route::get('/perle{idperle}', function($idperle) {
 
-	$perle = Perle::find($idperle);
-
-	return view('perle_bootstrap', ['perle' =>$perle]);
+	$perle = Perle::find($idperle); // recupere la perle demandée
+    $anecdotes= DB::table('anecdotes') // recupere les anecdotes sur la perle et les classe aléatoirement
+                    ->select(['*'])
+                    ->where('idperle', $idperle)
+                    ->orderBy('dateanecdote', 'desc') 
+                    ->get();      
+    $photos= DB::table('photos') // recupere les anecdotes sur la perle et les classe aléatoirement
+                    ->select(['*'])
+                    ->where('idperle', $idperle)
+                    ->orderBy(DB::raw('RAND()'))
+                    ->get();               
+	return view('perle_bootstrap', ['perle' =>$perle, 'anecdotes' => $anecdotes, 'photos' => $photos]);
 
 });
 
@@ -173,6 +188,7 @@ Route::any('valider_ajout_anecdote', function(Request $request) {
 });
 
 
+// Rècupere aléatoirement des photos dans la base de données afin de la afficher sur la page d'accueil (bandeau à droite)
 Route::get('/photosaleatoires', function() {
     $photos = Photo::orderBy(DB::raw('RAND()'))->get();
    /* $photos= DB::table('photos')
@@ -181,3 +197,12 @@ Route::get('/photosaleatoires', function() {
     echo json_encode($photos);
 });
  
+
+
+
+ // Affiche la page de consultation
+Route::get('/consulter', function() {
+$perles = Perle::get();
+    return view('consulter_perle');
+ 
+});

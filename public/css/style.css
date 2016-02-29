@@ -65,6 +65,10 @@ footer p {
 	margin: inherit;
 }
 
+ #titre img {
+ 	height: 90px;
+ }
+
 
 /* -------------- colonne de recherhe --------------- */
 #formulaire_recherche {
@@ -152,5 +156,15 @@ footer p {
 
 /* ----------- Page consultation ------------ */
 #titre_consultation {
+	color: white;
+	background-color: rgb(62, 164,84);
 	
+}
+#formulaires #ajout1, #formulaires #ajout2 {
+		background-color: rgb(62, 164,84);
+		color: white;
+}
+
+#anecdotes #anecdote+#anecdote {
+	border-top: 1px solid black;
 }
